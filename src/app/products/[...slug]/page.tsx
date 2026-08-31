@@ -1,10 +1,30 @@
-export default function ProductDetailPage() {
+// src/app/products/[...slug]/page.tsx
+
+import ProductDetailComponent from "@/components/products/ProductDetailComponent";
+
+interface PageProps {
+  params: Promise<{
+    slug: string[];
+  }>;
+}
+
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+
+  const productId = slug?.[0];
+
+  if (!productId) {
+    return (
+      <div className="p-8 text-center">
+        រកមិនឃើញអត្តសញ្ញាណផលិតផលឡើយ
+      </div>
+    );
+  }
+
   return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 text-center">
-      <h1 className="text-2xl font-semibold">Product</h1>
-      <p className="text-sm text-gray-500">
-        Coming soon.
-      </p>
-    </div>
+    <ProductDetailComponent
+      id={productId}
+      className=""
+    />
   );
 }
