@@ -6,121 +6,160 @@ import { Button } from "@/components/ui/button";
 import { Heart, ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const sizes = ["7", "8", "9", "10"];
-
 const getDeliveryDate = () => {
   const date = new Date();
   date.setDate(date.getDate() + 3);
+
   const day = date.getDate();
-  const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][date.getMonth()];
-  const suffix = ["th", "st", "nd", "rd"][
-    day % 10 > 3 ? 0 : (day % 100 - day % 10 !== 10 ? day % 10 : 0)
-  ];
+
+  const month = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ][date.getMonth()];
+
+  const suffix =
+    day % 10 === 1 && day % 100 !== 11
+      ? "st"
+      : day % 10 === 2 && day % 100 !== 12
+        ? "nd"
+        : day % 10 === 3 && day % 100 !== 13
+          ? "rd"
+          : "th";
+
   return `${day}${suffix} ${month}`;
 };
+
 export interface ItemsCard {
-  image_url :string ,
-  name : string ,
-  description :string ,
-  category :string ,
-  price :number ,
-  cuisine : string
+  image_url: string;
+  name: string;
+  description: string;
+  category: string;
+  price: number;
+  cuisine: string;
 }
 
-export default function EcommerceProductCard({image_url,name,description,category,price,cuisine}: ItemsCard) {
-  const [activeSize, setActiveSize] = useState(1);
+export default function EcommerceProductCard({
+  image_url,
+  name,
+  description,
+  category,
+  price,
+  cuisine,
+}: ItemsCard) {
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [inBag, setInBag] = useState(false);
 
   return (
-    <div className="flex items-center justify-center p-8 w-full bg-background">
-      <Card className="w-80 rounded-2xl overflow-hidden p-0 gap-0  group/card">
-
-        {/* ── Image zone ── */}
+    <div className="flex items-center justify-center w-full">
+      <Card
+        className={cn(
+          "w-full max-w-80 rounded-2xl overflow-hidden p-0 gap-0",
+          "group/card cursor-pointer",
+          "transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+        )}
+      >
+        {/* Image */}
         <div className="relative overflow-hidden h-80">
           <img
             src={image_url}
-            className="object-contain drop-shadow-2xl px-8 py-6 transition-transform duration-500 ease-out group-hover/card:scale-105"
-            alt="Nike Air Max Pulse"
+            alt={name}
+            className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover/card:scale-105"
           />
 
-          {/* Discount badge — always visible */}
+          {/* Category */}
           <span className="absolute top-3 left-3 text-xs tracking-widest font-bold uppercase bg-foreground text-background px-2.5 py-1 rounded-sm select-none">
-            −21%
+            {category}
           </span>
 
-          {/* Wishlist — always visible top-right */}
+          {/* Wishlist */}
           <button
-            onClick={() => setIsWishlisted(!isWishlisted)}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsWishlisted(!isWishlisted);
+            }}
             title="Wishlist"
             className={cn(
-              "absolute top-3 right-3 h-8 w-8 rounded-full border shadow-sm flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95",
+              "absolute top-3 right-3 h-8 w-8 rounded-full border shadow-sm",
+              "flex items-center justify-center transition-all duration-200",
+              "hover:scale-110 active:scale-95",
               isWishlisted
-                ? "bg-rose-50 border-rose-200 dark:bg-rose-950 dark:border-rose-800"
+                ? "bg-rose-50 border-rose-200"
                 : "bg-background"
             )}
           >
             <Heart
               className={cn(
                 "w-3.5 h-3.5 transition-colors",
-                isWishlisted ? "fill-rose-500 text-rose-500" : "text-muted-foreground"
+                isWishlisted
+                  ? "fill-rose-500 text-rose-500"
+                  : "text-muted-foreground"
               )}
             />
           </button>
         </div>
 
-        {/* Info zone */}
-        <CardContent className="px-4 pt-4 pb-4 space-y-1.5">
-          {/* Brand + name */}
+        {/* Info */}
+        <CardContent className="px-4 pt-4 pb-4 space-y-2">
           <div className="min-w-0">
             <h3 className="text-base font-bold text-foreground truncate">
               {name}
             </h3>
-            <p className="text-sm text-muted-foreground truncate">
-             {description}
+
+            <p className="text-sm text-muted-foreground line-clamp-2">
+              {description}
             </p>
           </div>
 
-          {/* Price & Discount */}
-          <div className="flex items-center gap-2 pt-1">
-            <span className="text-green-600 dark:text-green-500 font-semibold text-sm">{category}</span>
-            <span className="text-muted-foreground line-through text-sm">{price}</span>
-            <span className="text-foreground font-bold text-base">{cuisine}</span>
-          </div>
+          {/* Price */}
+          <div className="flex items-center justify-between gap-2 pt-1">
+            <span className="text-sm font-medium text-muted-foreground">
+              {cuisine}
+            </span>
 
+            <span className="text-foreground font-bold text-base">
+              ${price.toFixed(2)}
+            </span>
+          </div>
 
           {/* Delivery */}
           <div className="text-xs text-muted-foreground font-medium">
-            Delivery by <span suppressHydrationWarning className="text-foreground font-bold">{getDeliveryDate()}</span>
-          </div>
-
-          {/* Size selector */}
-          <div className="flex gap-1.5 pt-2">
-            {sizes.map((s, i) => (
-              <button
-                key={s}
-                onClick={() => setActiveSize(i)}
-                className={cn(
-                  "flex-1 h-7 rounded-lg text-sm font-medium border transition-all duration-150",
-                  activeSize === i
-                    ? "bg-foreground text-background border-foreground"
-                    : "text-muted-foreground hover:border-foreground/50 hover:text-foreground"
-                )}
-              >
-                US {s}
-              </button>
-            ))}
+            Delivery by{" "}
+            <span
+              suppressHydrationWarning
+              className="text-foreground font-bold"
+            >
+              {getDeliveryDate()}
+            </span>
           </div>
         </CardContent>
 
-        {/* Action zone — always visible */}
+        {/* Actions */}
         <CardFooter className="px-4 pb-6 gap-2 bg-transparent border-t-0">
-          {/* Bag toggle icon button */}
+          {/* Add to bag */}
           <button
-            onClick={() => setInBag(!inBag)}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setInBag(!inBag);
+            }}
             title={inBag ? "Remove from bag" : "Add to bag"}
             className={cn(
-              "h-12 w-12 shrink-0 rounded-xl border flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95",
+              "h-12 w-12 shrink-0 rounded-xl border",
+              "flex items-center justify-center",
+              "transition-all duration-200 hover:scale-105 active:scale-95",
               inBag
                 ? "bg-foreground text-background border-foreground"
                 : "bg-background text-muted-foreground hover:border-foreground/50 hover:text-foreground"
@@ -129,17 +168,20 @@ export default function EcommerceProductCard({image_url,name,description,categor
             <ShoppingBag className="w-5 h-5" />
           </button>
 
-          {/* Buy Now — button-17 ripple style */}
-          <Button className="relative overflow-hidden group/btn flex-1 h-12 rounded-xl font-semibold text-base cursor-pointer border border-primary transition-all flex items-center justify-center gap-2">
-            <span className="absolute left-1/2 -translate-x-1/2 top-full -translate-y-1/2 w-8 h-8 bg-white dark:bg-gray-950 rounded-full scale-0 transition-transform duration-700 ease-in-out group-hover/btn:scale-[20]" />
-            <span className="relative z-10 transition-colors duration-500 group-hover/btn:text-gray-950 dark:group-hover/btn:text-white">
-              Buy Now
-            </span>
+          {/* Buy Now */}
+          <Button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              console.log("Buy:", name);
+            }}
+            className="flex-1 h-12 rounded-xl font-semibold text-base"
+          >
+            Buy Now
           </Button>
         </CardFooter>
-
       </Card>
     </div>
   );
 }
- 
