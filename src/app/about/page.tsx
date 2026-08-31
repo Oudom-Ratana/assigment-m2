@@ -11,6 +11,7 @@ import {
   Target,
 } from "lucide-react";
 import { useState } from "react";
+import ParticlesBackground from "@/components/lightswind/particles-background";
 
 // Data
 const stories = [
@@ -53,83 +54,10 @@ const mentor = [
   "/assets/mentor/Mentor.JPG",
 ];
 
-// Components
-function DottedBackground() {
-  const points = [
-    [60, 180],
-    [210, 90],
-    [350, 210],
-    [500, 130],
-    [635, 280],
-    [795, 200],
-    [945, 320],
-    [1085, 160],
-    [50, 640],
-    [220, 520],
-    [340, 640],
-    [510, 550],
-    [660, 680],
-    [830, 510],
-    [1010, 620],
-    [1170, 500],
-  ];
-
-  return (
-    <svg
-      className="about-dots"
-      viewBox="0 0 1200 900"
-      preserveAspectRatio="none"
-      aria-hidden="true"
-    >
-      <defs>
-        <radialGradient id="dot-fade">
-          <stop offset="0" stopColor="#6A040F" stopOpacity=".2" />
-          <stop offset="1" stopColor="#6A040F" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <circle cx="950" cy="220" r="300" fill="url(#dot-fade)" />
-      <g className="about-dots__network" fill="#6A040F" stroke="#6A040F">
-        <path
-          d="M60 180 210 90l140 120 150-80 135 150 160-80 150 120 140-160"
-          fill="none"
-          strokeOpacity=".12"
-        />
-        <path
-          d="M50 640 220 520l120 120 170-90 150 130 160-170 180 110 160-120"
-          fill="none"
-          strokeOpacity=".1"
-        />
-        <path
-          d="M210 90 220 520M500 130 510 550M795 200 680 580M1035 120 1040 470"
-          fill="none"
-          strokeOpacity=".08"
-        />
-        {points.map(([cx, cy], index) => (
-          <circle
-            className="about-particle"
-            key={cx + "-" + cy}
-            cx={cx}
-            cy={cy}
-            r={index % 3 === 0 ? "4" : "3"}
-            stroke="none"
-            style={
-              {
-                "--particle-delay": `${index * -0.7}s`,
-                "--particle-duration": `${7 + (index % 4)}s`,
-              } as React.CSSProperties
-            }
-          />
-        ))}
-      </g>
-    </svg>
-  );
-}
-
 // Section Components
 function HeroSection() {
   return (
     <section className="about-hero relative overflow-hidden">
-      <div className="about-hero__pattern" aria-hidden="true" />
       <div className="about-container about-hero__content mx-auto grid items-center">
         <div className="about-hero__copy">
           <p className="eyebrow eyebrow--gold">
@@ -387,8 +315,11 @@ export default function AboutPage() {
   const [storyIndex, setStoryIndex] = useState(1);
 
   return (
-    <main className="about-page">
-      <DottedBackground />
+    <main className="about-page relative">
+      <ParticlesBackground
+        colors={["#6A040F", "#FAF6F0"]}
+        height="auto"
+      />
       <HeroSection />
       <StorySection storyIndex={storyIndex} onStoryChange={setStoryIndex} />
       <VisionMissionSection />
