@@ -16,7 +16,7 @@ export default function Intro() {
         >
           <div className="relative overflow-hidden" style={{ aspectRatio: "4/5" }}>
             <img
-              src="https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=1200&auto=format&fit=crop"
+              src="https://www.cambodiaembassyuk.org/wp-content/uploads/2023/11/Num-Banh-Chok-Khmer-768x564.jpg"
               alt="Traditional Khmer meal being prepared with fresh herbs and rice"
               className="h-full w-full object-cover"
               loading="lazy"

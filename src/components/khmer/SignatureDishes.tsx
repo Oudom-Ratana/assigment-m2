@@ -17,7 +17,7 @@ const DISHES: Dish[] = [
     price: "$12.00",
     description: "Fragrant steamed fish curry with coconut and Khmer herbs.",
     image:
-      "https://images.unsplash.com/photo-1626200926749-93447cb00e57?q=80&w=900&auto=format&fit=crop",
+      "https://silkroadrecipes.com/wp-content/uploads/2024/08/Cambodian-Khmer-Fish-Amok-Recipe-square.jpg",
   },
   {
     name: "Beef Lok Lak",
@@ -25,7 +25,7 @@ const DISHES: Dish[] = [
     description:
       "Seared marinated beef tossed in a bright peppercorn-lime sauce.",
     image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=900&auto=format&fit=crop",
+      "https://www.simplyrecipes.com/thmb/zb1rbkgxDQT3SfEPZiKncciphp8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Lok-Lak-Mustard-LEAD-05-a0d8c2c5cd064e9c8c31af93a81b51f0.jpg",
   },
   {
     name: "Bai Sach Chrouk",
@@ -33,7 +33,7 @@ const DISHES: Dish[] = [
     description:
       "Charcoal-grilled pork over broken rice with pickled vegetables.",
     image:
-      "https://images.unsplash.com/photo-1617093727343-374698b1b08d?q=80&w=900&auto=format&fit=crop",
+      "https://seniworld.com/wp-content/uploads/2026/08/Best-Bai-Sach-Chrouk-In-Cambodian.jpg",
   },
   {
     name: "Nom Banh Chok",
@@ -41,7 +41,7 @@ const DISHES: Dish[] = [
     description:
       "Fresh rice noodles in a green fish-based curry, topped with herbs.",
     image:
-      "https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=900&auto=format&fit=crop",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWDlwCPR1HCerb1Pa0bOQY-9hDZx-Tu1L58cgZBkR9NmKl0De4L9BWR98d&s=10",
   },
   {
     name: "Samlor Korko",
@@ -49,7 +49,7 @@ const DISHES: Dish[] = [
     description:
       "Cambodia's national soup — vegetables, herbs, and toasted rice.",
     image:
-      "https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=900&auto=format&fit=crop",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQD8Y3Ato8Xy3z9n3836SMAa3LhTHP4ytVALLaR5UmEWkFS8zTXgBeOMe5I&s=10",
   },
   {
     name: "Khmer Red Curry",
@@ -57,7 +57,7 @@ const DISHES: Dish[] = [
     description:
       "A rich coconut curry layered with lemongrass and Kampot pepper.",
     image:
-      "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?q=80&w=900&auto=format&fit=crop",
+      "https://media-cdn.tripadvisor.com/media/photo-s/16/a0/b0/56/khmer-curry-is-also-one.jpg",
   },
 ];
 

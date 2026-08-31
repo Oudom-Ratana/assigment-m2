@@ -7,27 +7,27 @@ const INGREDIENTS = [
   {
     name: "Lemongrass",
     image:
-      "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?q=80&w=500&auto=format&fit=crop",
+      "https://kroya.restaurant/media/pages/glossary/lemongrass/9e15e5e57d-1709213048/lemongrass-600x.jpg",
   },
   {
     name: "Kampot Pepper",
     image:
-      "https://images.unsplash.com/photo-1599909533144-cd8c76ac6f52?q=80&w=500&auto=format&fit=crop",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGDDxXFqkItYmK2k4V6-OJcF0f7LMG6CEiIG_BPwDnKQ&s=10",
   },
   {
     name: "Galangal",
     image:
-      "https://images.unsplash.com/photo-1615485925600-97237c4fc1ec?q=80&w=500&auto=format&fit=crop",
+      "https://img.magnific.com/free-photo/galangal-natural-herbal-is-natural-herbal-asia-white-wall_1150-21823.jpg?semt=ais_hybrid&w=740&q=80",
   },
   {
     name: "Kaffir Lime",
     image:
-      "https://images.unsplash.com/photo-1600326145359-3a44909d1a39?q=80&w=500&auto=format&fit=crop",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_0gf3NPyASIdVNYQllkzucGnvgcmBo2lhQA3yUkqLUeAV7XBKwgmXlgOq&s=10",
   },
   {
     name: "Turmeric",
     image:
-      "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=500&auto=format&fit=crop",
+      "https://walkaboutmonkey.com/wp-content/uploads/2019/05/turmeric-3-1024x682-optimized.jpg",
   },
   {
     name: "Coconut",
@@ -37,7 +37,7 @@ const INGREDIENTS = [
   {
     name: "Fresh Herbs",
     image:
-      "https://images.unsplash.com/photo-1610725664285-7c57e6eeac3f?q=80&w=500&auto=format&fit=crop",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9DFDeZiqBBRLutpCXIypYlwHPKiAlWUuFU2l-qgOfnh__u19G2KhYbPzO&s=10",
   },
   {
     name: "Rice",

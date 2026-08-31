@@ -78,7 +78,7 @@ export default function LocalSourcing() {
             style={{ aspectRatio: "3/4" }}
           >
             <img
-              src="https://images.unsplash.com/photo-1595855709940-16db5ed19d55?q=80&w=700&auto=format&fit=crop"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6jPjc3TSdlOsWS9Jm6rfslwmlQOftCfyaTQMmpUGcnbi8M1euBptk_0s&s=10"
               alt="Farmer harvesting fresh produce"
               className="h-full w-full object-cover"
               loading="lazy"
